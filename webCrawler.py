@@ -3,12 +3,14 @@ import urllib2
 import re
 from bs4 import BeautifulSoup
 
-#works
+
+#Returns the HTML when passed a URL
 def getHtml(url):
     clientResponse = urllib2.urlopen(url)
     htmlText = clientResponse.read()
     return htmlText
 
+#Prints out all the Links in the HTML for a passed url, used for a visual add in developing
 def parseForLinks(url):
     searchSpace = getHtml(url)
     soup = BeautifulSoup(searchSpace, 'html.parser')
@@ -44,9 +46,4 @@ number = int(num)
 
 
 
-#print(getHtml(url))
-#print(parseForLinks('http://yahoo.com'))
 recursiveCrawler(url, number)    
-#print(getHtml('http://yahoo.com'))
-
-## Should it print the html? 
